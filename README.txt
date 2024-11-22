@@ -1,0 +1,1 @@
+This project is my attempt at entering the world of robotics, computer vision and control systems. Once this project is made it would serve me as a test bench for many more projects. A decent investment on this is never a bad idea.
