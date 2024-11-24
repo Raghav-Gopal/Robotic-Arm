@@ -4,11 +4,14 @@
 Servo myServo;
 void setup() {
 myServo.attach(23);
+pinMode(22,OUTPUT_OPEN_DRAIN);
 }
 
 void loop() {
   myServo.write(180);
-  delay(500);
+  digitalWrite(22,HIGH);
+  delay(1000);
+  digitalWrite(22,LOW);
   myServo.write(0);
-  delay(500);
+  delay(1000);
 }
