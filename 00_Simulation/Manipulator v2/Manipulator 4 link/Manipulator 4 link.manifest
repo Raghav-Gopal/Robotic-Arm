@@ -1,0 +1,10 @@
+{
+	"autodeskProduct":	"Fusion",
+	"type":	"script",
+	"author":	"Raghav Gopal M",
+	"description":	{
+		"":	"2nd manipulator version"
+	},
+	"supportedOS":	"windows|mac",
+	"editEnabled":	true
+}

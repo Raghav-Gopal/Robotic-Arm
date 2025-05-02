@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<robot name="Manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Manipulator_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Manipulator_description)/urdf/Manipulator.trans" />
+<xacro:include filename="$(find Manipulator_description)/urdf/Manipulator.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="3.134077280433092e-15 0.0 -0.005501751357648892" rpy="0 0 0"/>
+    <mass value="0.12849533381356237"/>
+    <inertia ixx="1.9e-05" iyy="1.9e-05" izz="3.5e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component2_1">
+  <inertial>
+    <origin xyz="3.3395508580724707e-15 1.0720185438044949e-14 0.0080163577312226" rpy="0 0 0"/>
+    <mass value="0.0601598355917369"/>
+    <inertia ixx="5e-06" iyy="7e-06" izz="8e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/Component2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component3_1">
+  <inertial>
+    <origin xyz="0.00699999999999525 -0.07303387571781701 0.018887847457719705" rpy="0 0 0"/>
+    <mass value="0.23740208011011288"/>
+    <inertia ixx="0.000507" iyy="3.9e-05" izz="0.000476" ixy="-0.0" iyz="0.000121" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.007 0.0 -0.0125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.007 0.0 -0.0125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/Component3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component4_1">
+  <inertial>
+    <origin xyz="1.8322125465551748e-15 -0.033693574564269246 0.015944070322834895" rpy="0 0 0"/>
+    <mass value="0.16509858750971396"/>
+    <inertia ixx="0.000153" iyy="1.9e-05" izz="0.000142" ixy="-0.0" iyz="3.4e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.146975 -0.04328" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.146975 -0.04328" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Manipulator_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component2_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="-0.007 -0.0 0.0125" rpy="0 0 0"/>
+  <parent link="Component2_1"/>
+  <child link="Component3_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="0.007 -0.146975 0.03078" rpy="0 0 0"/>
+  <parent link="Component3_1"/>
+  <child link="Component4_1"/>
+  <axis xyz="-0.0 -0.25038 -0.968148"/>
+</joint>
+
+</robot>

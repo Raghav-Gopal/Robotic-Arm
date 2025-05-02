@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+FieldCurrent = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.8, 0.9, 1, 1.1])
+ArmatureCurrent0 = np.array([4.24, 3.712, 3.095, 2.514, 2.04, 1.551, 1.356, 1.302, 1.482, 1.955, 2.411, 2.86])
+ArmatureCurrent1 = np.array([4.438, 3.787, 3.215, 2.660, 2.288, 1.938, 1.813, 1.795, 1.943, 2.292, 2.700, 3.079])
+ArmatureCurrent2 = np.array([4.577, 3.943, 3.340, 2.763, 2.329, 1.970, 1.906, 1.885, 2.012, 2.260, 2.716, 3.150])
+PowerFactor0 = abs(np.array([-0.212, -0.230, -0.246, -0.273, -0.406, -0.675, -0.807, 0.888, 0.723, 0.372, 0.254, 0.233]))
+PowerFactor1 = abs(np.array([-0.394, -0.406, -0.553, -0.598, -0.708, -0.937, -0.986, 0.985, 0.863, 0.684, 0.523, 0.378]))
+PowerFactor2 = abs(np.array([-0.410, -0.447, -0.530, -0.663, -0.780, -0.937, -0.993, 0.976, 0.863, 0.696, 0.640, 0.403]))
+
+# Plot for Armature Current
+plt.figure()
+plt.plot(FieldCurrent, ArmatureCurrent0, label='No load')
+plt.plot(FieldCurrent, ArmatureCurrent1, label='L1')
+plt.plot(FieldCurrent, ArmatureCurrent2, label='L1+L2')
+plt.title("Armature vs Field Current")
+plt.xlabel("Field Current (A)")
+plt.ylabel("Armature Current (A)")
+plt.legend()
+plt.show()
+
+# Plot for Power Factor
+plt.figure()
+plt.plot(FieldCurrent, PowerFactor0, label='No load')
+plt.plot(FieldCurrent, PowerFactor1, label='L1')
+plt.plot(FieldCurrent, PowerFactor2, label='L1+L2')
+plt.title("Power Factor vs Field Current")
+plt.xlabel("Field Current (A)")
+plt.ylabel("Power Factor")
+plt.legend()
+plt.show()
