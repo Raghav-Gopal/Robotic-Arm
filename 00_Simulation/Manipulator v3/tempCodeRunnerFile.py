@@ -1,1 +1,0 @@
-        l1 = 150 # Link_1 length
