@@ -1,0 +1,6 @@
+Arm #1 length = 250mm
+Arm #2 length = 250mm
+Sun gear = 36 teeth
+Ring gear = 60 teeth
+
+Overall base gear ratio = 2.667
